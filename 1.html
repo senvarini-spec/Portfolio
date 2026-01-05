@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Varini Sen - BCA Student | Web Developer | Programmer" />
+  <title>Varini Sen | BCA Student Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.4s, color 0.4s;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --secondary: #1e40af;
+      --bg: linear-gradient(to right, #eef2ff, #f8fafc);
+      --card: #ffffff;
+      --text: #1f2937;
+    }
+
+    body.dark {
+      --primary: #38bdf8;
+      --secondary: #0f172a;
+      --bg: #020617;
+      --card: #0f172a;
+      --text: #e5e7eb;
+    }
+
+    header {
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      position: relative;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9));
+      z-index: -1;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.4rem;
+      opacity: 0.95;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 6px solid #93c5fd;
+      margin-bottom: 20px;
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+      to { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: #e5e7eb;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .dark-toggle {
+      position: absolute;
+      right: 20px;
+      top: 18px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 40px;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      animation: fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+      border-left: 6px solid var(--primary);
+      padding-left: 15px;
+    }
+
+    .skills-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .skill {
+      background: linear-gradient(135deg, #ffffff, #f1f5f9);
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    body.dark .skill {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border: 1px solid #334155;
+    }
+
+    .skill:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .skill-name {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .bar {
+      background: #e2e8f0;
+      height: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    body.dark .bar {
+      background: #334155;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      background: var(--primary);
+      border-radius: 8px;
+      animation: load 2s ease-in-out;
+    }
+
+    @keyframes load {
+      from { width: 0; }
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: #f8fafc;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+
+    body.dark .project-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .project-card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: white;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.8rem; }
+      header p { font-size: 1.2rem; }
+      nav a { margin: 0 12px; font-size: 0.95rem; }
+      section { padding: 30px; margin: 50px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      nav a { display: block; margin: 12px 0; }
+      .dark-toggle { right: 15px; top: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Live Particle Background -->
+  <div id="particles-js"></div>
+
+  <header>
+    <div>
+      <img src="/WhatsApp Image 2025-12-26 at 7.47.54 PM.jpeg" alt="Varini Sen" class="profile-img" />
+      <h1>Varini Sen</h1>
+      <p><span id="typing"></span></p>
+      <div style="margin-top:20px;">
+        <a href="https://github.com/senvarini-spec" target="_blank" style="margin:0 15px;color:white;font-size:28px;text-decoration:none;">GitHub</a>
+        <a href="https://linkedin.com/in/varini-sen-417ba73a3" target="_blank" style="margin:0 15px;color:white;font-size:28px;text-decoration:none;">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <button class="dark-toggle" id="darkToggle">Moon</button>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a passionate BCA student with a strong interest in web development and programming. I enjoy building interactive and user-friendly applications using modern technologies.</p>
+  </section>
+
+  <section id="skills">
+    <h2 style="text-align:center">Skills</h2>
+    <p style="text-align:center;margin-bottom:40px;color:#64748b;">
+      A snapshot of my technical skills with proficiency levels
+    </p>
+
+    <div class="skills-wrapper">
+      <div class="skills-grid">
+        <div class="skill">
+          <span class="skill-name">HTML5</span>
+          <div class="bar"><span style="width:90%"></span></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">CSS3</span>
+          <div class="bar"><span style="width:85%"></span></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">JavaScript</span>
+          <div class="bar"><span style="width:70%"></span></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">C Programming</span>
+          <div class="bar"><span style="width:75%"></span></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">Python</span>
+          <div class="bar"><span style="width:65%"></span></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">Problem Solving</span>
+          <div class="bar"><span style="width:80%"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Calculator App</h3>
+        <p>A fully functional and responsive calculator built using HTML, CSS, and JavaScript.</p>
+        <a href="https://github.com/yourusername/calculator" target="_blank">View Project →</a>
+      </div>
+      <div class="project-card">
+        <h3>Number Utility Program</h3>
+        <p>C programs for factorial calculation, number reversal, and even-odd counting.</p>
+        <a href="https://github.com/yourusername/number-utility" target="_blank">View Project →</a>
+      </div>
+      <div class="project-card">
+        <h3>Personal Portfolio Website</h3>
+        <p>This responsive portfolio showcasing my skills, projects, and journey.</p>
+        <a href="https://github.com/yourusername/portfolio" target="_blank">View Project →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <p><strong>Bachelor of Computer Applications (BCA)</strong></p>
+    <p><strong>College/University:</strong> Rungta International Skills University</p>
+    <p><strong>Duration:</strong> 2025 – 2028</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><strong>Email:</strong> senvarini@gmail.com</p>
+    <p><strong>Phone:</strong> +91-7773051985</p>
+    <p><strong>Location:</strong> India</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Varini Sen | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Typing Animation
+    const roles = ["BCA Student", "Web Developer", "Programmer"];
+    let roleIndex = 0;
+    let charIndex = 0;
+    const typingElement = document.getElementById("typing");
+
+    function typeEffect() {
+      if (charIndex < roles[roleIndex].length) {
+        typingElement.textContent += roles[roleIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeEffect, 100);
+      } else {
+        setTimeout(eraseEffect, 2000);
+      }
+    }
+
+    function eraseEffect() {
+      if (charIndex > 0) {
+        typingElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseEffect, 60);
+      } else {
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(typeEffect, 800);
+      }
+    }
+
+    typeEffect();
+
+    // Dark Mode Toggle
+    document.getElementById("darkToggle").addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      const icon = document.getElementById("darkToggle");
+      icon.textContent = document.body.classList.contains("dark") ? "Sun" : "Moon";
+      loadParticles(); // Refresh particles for new theme
+    });
+
+    // Particles Configuration
+    function loadParticles() {
+      const isDark = document.body.classList.contains("dark");
+      const particleColor = isDark ? "#a5f3fc" : "#2563eb";
+      const lineColor = isDark ? "#60a5fa" : "#2563eb";
+
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 100, density: { enable: true, value_area: 800 } },
+          color: { value: particleColor },
+          shape: { type: "circle" },
+          opacity: { value: 0.7, random: true, anim: { enable: true, speed: 1 } },
+          size: { value: 4, random: true },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: lineColor,
+            opacity: 0.5,
+            width: 1
+          },
+          move: { enable: true, speed: 3, direction: "none", random: false }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: { onhover: { enable: true, mode: "repulse" }, resize: true }
+        },
+        retina_detect: true
+      });
+    }
+
+    // Load particles on start
+    loadParticles();
+  </script>
+</body>
+</html>
